@@ -1,6 +1,6 @@
 import pygame
 from settings import MAX_BULLETS, WIDTH, BULLET_VEL, YELLOW_HIT, RED_HIT
-from game_sound import play_fire_sound
+from game_sound import player_one_fire_sound, player_two_fire_sound
 
 """Handles shooting logic in the game"""
 
@@ -16,7 +16,7 @@ def handle_yellow_shooting(event, yellow, yellow_bullets):
                 10, 5
             )
             yellow_bullets.append(bullet)
-            play_fire_sound()
+            player_one_fire_sound()
 def handle_red_shooting(event, red, red_bullets):
     """
     Handles shooting logic for the red spaceship.
@@ -29,7 +29,7 @@ def handle_red_shooting(event, red, red_bullets):
                 10, 5
             )
             red_bullets.append(bullet)
-            play_fire_sound()
+            player_two_fire_sound()
 
 
 def handle_bullets(yellow_bullets, red_bullets, yellow, red):
