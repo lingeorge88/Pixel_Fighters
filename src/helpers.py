@@ -1,4 +1,4 @@
-from settings import FPS, WIN, WHITE, BLACK, BORDER, RESIZE_YELLOW_SPACESHIP, RESIZE_RED_SPACESHIP, RED, YELLOW, red_bullets, yellow_bullets, BACKGROUND_IMAGE, red_health, yellow_health, HEALTH_FONT, WIDTH, WINNER_FONT, HEIGHT, MENU_FONT
+from settings import FPS, WIN, WHITE, BLACK, BORDER, RED, YELLOW, red_bullets, yellow_bullets, BACKGROUND_IMAGE, red_health, yellow_health, HEALTH_FONT, WIDTH, WINNER_FONT, HEIGHT, MENU_FONT, RESIZE_PLAYER_ONE, RESIZE_PLAYER_TWO
 import pygame
 """
 This is a the file that handles various helper functions like building the game background, drawing characters images on the screen, etc
@@ -10,8 +10,8 @@ def draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_hea
     yellow_health_text = HEALTH_FONT.render("Health: " + str(yellow_health), 1, WHITE)
     WIN.blit(red_health_text, (WIDTH - red_health_text.get_width()- 10, 10))
     WIN.blit(yellow_health_text, (10, 10))
-    WIN.blit(RESIZE_YELLOW_SPACESHIP, (yellow.x, yellow.y)) # position the image, using x,y coordinates
-    WIN.blit(RESIZE_RED_SPACESHIP, (red.x, red.y))
+    WIN.blit(RESIZE_PLAYER_ONE, (yellow.x, yellow.y)) # position the image, using x,y coordinates
+    WIN.blit(RESIZE_PLAYER_TWO, (red.x, red.y))
 
     for bullet in red_bullets:
         pygame.draw.rect(WIN, RED, bullet)

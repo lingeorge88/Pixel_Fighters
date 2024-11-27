@@ -1,4 +1,4 @@
-from settings import CHARACTER_IMAGE_WIDTH, CHARACTER_IMAGE_HEIGHT, WIDTH
+from settings import CHARACTER_IMAGE_WIDTH, CHARACTER_IMAGE_HEIGHT
 import pygame
 
 """This file specifies the position of the characters on the screen"""

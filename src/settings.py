@@ -23,10 +23,10 @@ BULLET_VEL = 8 # how fast the bullet that player shoots moves
 MAX_BULLETS = 5 # max bullets that can appear on each side at one time
 CHARACTER_IMAGE_WIDTH, CHARACTER_IMAGE_HEIGHT = 75, 100 # scale for our character images
 # We need to load character images and resize them
-YELLOW_SPACESHIP_IMAGE = pygame.image.load(os.path.join("Assets", 'char1.1.png')) 
-RESIZE_YELLOW_SPACESHIP = pygame.transform.scale(YELLOW_SPACESHIP_IMAGE, (CHARACTER_IMAGE_WIDTH, CHARACTER_IMAGE_HEIGHT))
-RED_SPACESHIP_IMAGE = pygame.image.load(os.path.join("Assets", 'char2.0.png'))
-RESIZE_RED_SPACESHIP = pygame.transform.scale(RED_SPACESHIP_IMAGE, (CHARACTER_IMAGE_WIDTH, CHARACTER_IMAGE_HEIGHT))
+PLAYER_ONE_IMAGE = pygame.image.load(os.path.join("Assets", 'char1.1.png')) 
+RESIZE_PLAYER_ONE = pygame.transform.scale(PLAYER_ONE_IMAGE, (CHARACTER_IMAGE_WIDTH, CHARACTER_IMAGE_HEIGHT))
+PLAYER_TWO_IMAGE = pygame.image.load(os.path.join("Assets", 'char2.0.png'))
+RESIZE_PLAYER_TWO = pygame.transform.scale(PLAYER_TWO_IMAGE, (CHARACTER_IMAGE_WIDTH, CHARACTER_IMAGE_HEIGHT))
 
 BACKGROUND_IMAGE = pygame.transform.scale(pygame.image.load(os.path.join("Assets", "background3.0.jpg")), (WIDTH, HEIGHT))
 BORDER = pygame.Rect(WIDTH//2 - 5, 0, 10, HEIGHT)  # Sets the border in the middle of the screen .
