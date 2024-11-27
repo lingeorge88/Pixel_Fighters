@@ -4,14 +4,13 @@ from helpers import draw_window, draw_winner, restart_prompt
 from movement_logic import yellow_handle_movement, red_handle_movement
 from game_objects import create_character_positions
 from shooting_logic import handle_yellow_shooting, handle_red_shooting, handle_bullets
-from game_sound import play_hit_sound
+from game_sound import play_hit_sound, play_background_music
 
 
 def main():
     global red_health, yellow_health  # Ensure global variables are reset
     red_health = 10
     yellow_health = 10
-
      # Reset bullets
     yellow_bullets.clear()
     red_bullets.clear()
@@ -22,6 +21,7 @@ def main():
     # Use clock to cap how many times the while loop executes (60 times per second)
     run = True
     while run:
+        
         clock.tick(FPS)
         for event in pygame.event.get():
             if (
@@ -58,4 +58,5 @@ def main():
     pygame.quit()
 
 if __name__ == "__main__":
+    play_background_music()
     main()
