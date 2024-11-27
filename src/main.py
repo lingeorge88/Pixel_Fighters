@@ -1,8 +1,9 @@
 import pygame
-from settings import FPS
+from settings import FPS, MAX_BULLETS, yellow_bullets, red_bullets, BULLET_VEL, WIDTH, RED_HIT, YELLOW_HIT
 from helpers import draw_window
 from movement_logic import yellow_handle_movement, red_handle_movement
 from game_objects import create_character_positions
+from shooting_logic import handle_yellow_shooting, handle_red_shooting, handle_bullets
 
 def main():
     red, yellow = create_character_positions()
@@ -18,10 +19,14 @@ def main():
             ):  # if user closes the window, we terminate the game
                 run = False
 
+            handle_yellow_shooting(event, yellow, yellow_bullets)
+            handle_red_shooting(event, red, red_bullets)
+
         keys_pressed = pygame.key.get_pressed()
         yellow_handle_movement(keys_pressed, yellow)
         red_handle_movement(keys_pressed, red)
-        draw_window(red, yellow)
+        handle_bullets(yellow_bullets, red_bullets, yellow, red)
+        draw_window(red, yellow, red_bullets, yellow_bullets)
 
     pygame.quit()
 
