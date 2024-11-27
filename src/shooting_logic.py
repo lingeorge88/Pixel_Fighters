@@ -21,7 +21,7 @@ def handle_red_shooting(event, red, red_bullets):
     Handles shooting logic for the red spaceship.
     """
     if event.type == pygame.KEYDOWN:
-        if event.key == pygame.K_RCTRL and len(red_bullets) < MAX_BULLETS:
+        if event.key == pygame.K_m and len(red_bullets) < MAX_BULLETS:
             bullet = pygame.Rect(
                 red.x, 
                 red.y + red.height // 2 - 2, 

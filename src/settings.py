@@ -1,6 +1,6 @@
 import pygame
 import os
-
+pygame.font.init()
 """This is the settings file that specifies window size, sizes of images, colors, etc, for the game"""
 """
 Set up the size of the window
@@ -33,3 +33,9 @@ BORDER = pygame.Rect(WIDTH//2 - 5, 0, 10, HEIGHT)  # Sets the border in the midd
 
 YELLOW_HIT = pygame.USEREVENT + 1
 RED_HIT = pygame.USEREVENT + 2
+
+yellow_health = 10
+red_health = 10
+HEALTH_FONT = pygame.font.SysFont('comicsans', 40)
+WINNER_FONT = pygame.font.SysFont('comicsans', 100)
+MENU_FONT = pygame.font.SysFont('comicsans', 40)
