@@ -4,10 +4,12 @@ from helpers import draw_window, draw_winner, restart_prompt
 from movement_logic import yellow_handle_movement, red_handle_movement
 from game_objects import create_character_positions
 from shooting_logic import handle_yellow_shooting, handle_red_shooting, handle_bullets
-from game_sound import play_hit_sound, play_background_music
+from game_sound import SoundManager
 
+game_sounds = SoundManager()
 
 def main():
+    # Initialize game sound runner
     global red_health, yellow_health  # Ensure global variables are reset
     red_health = 10
     yellow_health = 10
@@ -33,10 +35,10 @@ def main():
 
             if event.type == RED_HIT:
                 red_health -= 1
-                play_hit_sound()
+                game_sounds.play_hit_sound()
             if event.type == YELLOW_HIT:
                 yellow_health -= 1
-                play_hit_sound()
+                game_sounds.play_hit_sound()
         winner_text = ""
         if red_health <= 0:
             winner_text = "Yellow Wins!"
@@ -58,5 +60,5 @@ def main():
     pygame.quit()
 
 if __name__ == "__main__":
-    play_background_music()
+    game_sounds.play_background_music()
     main()

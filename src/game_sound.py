@@ -1,22 +1,23 @@
+# game_sound.py
 import pygame
 import os
 
-pygame.mixer.init()
+class SoundManager:
+    def __init__(self):
+        pygame.mixer.init()
+        self.bullet_hit_sound = pygame.mixer.Sound(os.path.join('Assets', 'hitsound.wav'))
+        self.player_one_fire_sound = pygame.mixer.Sound(os.path.join('Assets', 'player1ff.wav'))
+        self.player_two_fire_sound = pygame.mixer.Sound(os.path.join('Assets', 'player2ff.wav'))
+        self.background_music = pygame.mixer.Sound(os.path.join('Assets', 'background_music.mp3'))
 
-BULLET_HIT_SOUND = pygame.mixer.Sound(os.path.join('Assets', 'hitsound.wav'))
-PLAYER_ONE_FIRE_SOUND = pygame.mixer.Sound(os.path.join('Assets', 'player1ff.wav'))
-PLAYER_TWO_FIRE_SOUND = pygame.mixer.Sound(os.path.join('Assets', 'player2ff.wav'))
-BACKGROUND_MUSIC = pygame.mixer.Sound(os.path.join('Assets', 'background_music.mp3'))
+    def play_hit_sound(self):
+        self.bullet_hit_sound.play()  
 
+    def play_player_one_fire(self):
+        self.player_one_fire_sound.play()  
 
-def player_one_fire_sound():
-    PLAYER_ONE_FIRE_SOUND.play()
+    def play_player_two_fire(self):
+        self.player_two_fire_sound.play()  
 
-def player_two_fire_sound():
-    PLAYER_TWO_FIRE_SOUND.play()
-
-def play_hit_sound():
-    BULLET_HIT_SOUND.play()
-
-def play_background_music():
-    BACKGROUND_MUSIC.play(-1)
+    def play_background_music(self):
+        self.background_music.play(-1) 
