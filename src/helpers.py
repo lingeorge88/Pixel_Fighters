@@ -3,15 +3,15 @@ import pygame
 """
 This is a the file that handles various helper functions like building the game background, drawing characters images on the screen, etc
 """
-def draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health):
+def draw_window(player_two, player_one, player_two_bullets, player_one_bullets, player_two_health, player_one_health):
     WIN.blit((BACKGROUND_IMAGE), (0, 0))  # Setting up back ground color
     pygame.draw.rect(WIN, BLACK, BORDER)
-    red_health_text = HEALTH_FONT.render("Health: " + str(red_health), 1, WHITE)
-    yellow_health_text = HEALTH_FONT.render("Health: " + str(yellow_health), 1, WHITE)
-    WIN.blit(red_health_text, (WIDTH - red_health_text.get_width()- 10, 10))
-    WIN.blit(yellow_health_text, (10, 10))
-    WIN.blit(RESIZE_PLAYER_ONE, (yellow.x, yellow.y)) # position the image, using x,y coordinates
-    WIN.blit(RESIZE_PLAYER_TWO, (red.x, red.y))
+    player_two_health_text = HEALTH_FONT.render("Health: " + str(player_two_health), 1, WHITE)
+    player_one_health_text = HEALTH_FONT.render("Health: " + str(player_one_health), 1, WHITE)
+    WIN.blit(player_two_health_text, (WIDTH - player_two_health_text.get_width()- 10, 10))
+    WIN.blit(player_one_health_text, (10, 10))
+    WIN.blit(RESIZE_PLAYER_ONE, (player_one.x, player_one.y)) # position the image, using x,y coordinates
+    WIN.blit(RESIZE_PLAYER_TWO, (player_two.x, player_two.y))
 
     pygame.display.update()
 
@@ -22,14 +22,14 @@ def draw_winner(text):
     pygame.display.update()
     pygame.time.delay(5000)
 
-def render_projectiles(yellow_bullets, red_bullets, WIN):
+def render_projectiles(player_one_bullets, player_two_bullets, WIN):
     # Render bullets
-        for bullet in yellow_bullets:
+        for bullet in player_one_bullets:
             bullet.draw(WIN)  # Use the Bullet class's draw method to render the image
-        for bullet in red_bullets:
+        for bullet in player_two_bullets:
             bullet.draw(WIN)  # Use the Bullet class's draw method to render the image
 
-def restart_prompt(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health):
+def restart_prompt(player_two, player_one, player_two_bullets, player_one_bullets, player_two_health, player_one_health):
     """
     Helper function that displays a message asking if the player(s) would like to restart or quit the game after a game concludes
     """
@@ -49,7 +49,7 @@ def restart_prompt(red, yellow, red_bullets, yellow_bullets, red_health, yellow_
                     pygame.quit()
                     exit()
         clock.tick(FPS)
-        draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health)
+        draw_window(player_two, player_one, player_two_bullets, player_one_bullets, player_two_health, player_one_health)
         if pygame.time.get_ticks() % 3200 < 2800:  # Render text slower
             WIN.blit(restart_text, (WIDTH // 2 - restart_text.get_width() // 2, HEIGHT // 2 - restart_text.get_height() // 2))
         

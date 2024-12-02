@@ -1,5 +1,5 @@
 import pygame
-from settings import WIN, WIDTH, HEIGHT, BACKGROUND_IMAGE, HEALTH_FONT, CONTROL_FONT, WINNER_FONT, TITLE_FONT
+from settings import WIN, WIDTH, HEIGHT, BACKGROUND_IMAGE, HEALTH_FONT, CONTROL_FONT, TITLE_FONT
 
 def menu_options():
     """

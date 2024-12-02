@@ -1,5 +1,5 @@
 import pygame
-from settings import MAX_BULLETS, WIDTH, BULLET_VEL, YELLOW_HIT, RED_HIT, PLAYER_ONE_PROJECTILE, PLAYER_TWO_PROJECTILE
+from settings import MAX_BULLETS, WIDTH, BULLET_VEL, PLAYER_ONE_HIT, PLAYER_TWO_HIT, PLAYER_ONE_PROJECTILE, PLAYER_TWO_PROJECTILE
 from game_sound import SoundManager
 from bullet import Bullet
 
@@ -7,56 +7,56 @@ gameSound = SoundManager()
 
 """Handles shooting logic in the game"""
 
-def handle_yellow_shooting(event, yellow, yellow_bullets):
+def handle_player_one_shooting(event, player_one, player_one_bullets):
     """
     Handles shooting logic for player 1.
     """
     if event.type == pygame.KEYDOWN and event.key == pygame.K_q:
-        if len(yellow_bullets) < MAX_BULLETS:
+        if len(player_one_bullets) < MAX_BULLETS:
             bullet = Bullet(
-                x=yellow.x + yellow.width,
-                y=yellow.y + yellow.height // 2 - 2,
+                x=player_one.x + player_one.width,
+                y=player_one.y + player_one.height // 2 - 2,
                 width=10,
                 height=17,
                 velocity=BULLET_VEL,
                 image=PLAYER_ONE_PROJECTILE,
             )
-            yellow_bullets.append(bullet)
+            player_one_bullets.append(bullet)
             gameSound.play_player_one_fire()
-def handle_red_shooting(event, red, red_bullets):
+
+def handle_player_two_shooting(event, player_two, player_two_bullets):
     """
     Handles shooting logic for player 2
     """
     if event.type == pygame.KEYDOWN and event.key == pygame.K_m:
-        if len(red_bullets) < MAX_BULLETS:
+        if len(player_two_bullets) < MAX_BULLETS:
             bullet = Bullet(
-                x=red.x,
-                y=red.y + red.height // 2 - 2,
+                x=player_two.x,
+                y=player_two.y + player_two.height // 2 - 2,
                 width=10,
                 height=17,
                 velocity=-BULLET_VEL,
-                image = PLAYER_TWO_PROJECTILE
+                image=PLAYER_TWO_PROJECTILE,
             )
-            red_bullets.append(bullet)
+            player_two_bullets.append(bullet)
             gameSound.play_player_two_fire()
 
-
-def handle_bullets(yellow_bullets, red_bullets, yellow, red):
+def handle_bullets(player_one_bullets, player_two_bullets, player_one, player_two):
     """
     Move bullets, check for collisions, and remove off-screen bullets.
     """
-    for bullet in yellow_bullets[:]:
+    for bullet in player_one_bullets[:]:
         bullet.move()
-        if bullet.check_collision(red):
-            pygame.event.post(pygame.event.Event(RED_HIT))
-            yellow_bullets.remove(bullet)
+        if bullet.check_collision(player_two):
+            pygame.event.post(pygame.event.Event(PLAYER_TWO_HIT))
+            player_one_bullets.remove(bullet)
         elif bullet.is_off_screen(WIDTH):
-            yellow_bullets.remove(bullet)
+            player_one_bullets.remove(bullet)
 
-    for bullet in red_bullets[:]:
+    for bullet in player_two_bullets[:]:
         bullet.move()
-        if bullet.check_collision(yellow):
-            pygame.event.post(pygame.event.Event(YELLOW_HIT))
-            red_bullets.remove(bullet)
+        if bullet.check_collision(player_one):
+            pygame.event.post(pygame.event.Event(PLAYER_ONE_HIT))
+            player_two_bullets.remove(bullet)
         elif bullet.is_off_screen(WIDTH):
-            red_bullets.remove(bullet)
+            player_two_bullets.remove(bullet)

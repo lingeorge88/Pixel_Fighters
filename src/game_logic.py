@@ -1,21 +1,21 @@
 import pygame
 
 from helpers import draw_winner, restart_prompt
-from settings import RED_HIT, YELLOW_HIT
+from settings import PLAYER_TWO_HIT, PLAYER_ONE_HIT
 
-def handle_hits(event, red_health, yellow_health, sound_manager):
+def handle_hits(event, player_two_health, player_one_health, sound_manager):
     """
-    Handle RED_HIT and YELLOW_HIT events to update health and play hit sound.
+    Handle PLAYER_TWO_HIT and PLAYER_ONE_HIT events to update health and play hit sound.
     """
-    if event.type == RED_HIT:
-        red_health -= 1
+    if event.type == PLAYER_TWO_HIT:
+        player_two_health -= 1
         sound_manager.play_hit_sound()
-    if event.type == YELLOW_HIT:
-        yellow_health -= 1
+    if event.type == PLAYER_ONE_HIT:
+        player_one_health -= 1
         sound_manager.play_hit_sound()
-    return red_health, yellow_health
+    return player_two_health, player_one_health
 
-def check_winner(red_health, yellow_health, red, yellow, red_bullets, yellow_bullets):
+def check_winner(player_two_health, player_one_health, player_two, player_one, player_two_bullets, player_one_bullets):
     """
     Check if a winner exists and handle the winner logic.
 
@@ -23,13 +23,13 @@ def check_winner(red_health, yellow_health, red, yellow, red_bullets, yellow_bul
         winner_text: A string indicating the winner, or an empty string if no winner yet.
     """
     winner_text = ""
-    if red_health <= 0:
-        winner_text = "Yellow Wins!"
-    if yellow_health <= 0:
-        winner_text = "Red Wins!"
+    if player_two_health <= 0:
+        winner_text = "PLAYER ONE Wins!"
+    if player_one_health <= 0:
+        winner_text = "PLAYER TWO Wins!"
 
     if winner_text != "":
         draw_winner(winner_text)
-        if restart_prompt(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health):
+        if restart_prompt(player_two, player_one, player_two_bullets, player_one_bullets, player_two_health, player_one_health):
             return "RESTART"
     return winner_text
