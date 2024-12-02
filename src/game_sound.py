@@ -1,6 +1,7 @@
-# game_sound.py
 import pygame
 import os
+
+"""Encapsulate all of the game's functions relating to sound into one class"""
 
 class SoundManager:
     def __init__(self):
