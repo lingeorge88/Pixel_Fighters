@@ -1,4 +1,4 @@
-from settings import FPS, WIN, WHITE, BLACK, BORDER, RED, YELLOW, red_bullets, yellow_bullets, BACKGROUND_IMAGE, red_health, yellow_health, HEALTH_FONT, WIDTH, WINNER_FONT, HEIGHT, MENU_FONT, RESIZE_PLAYER_ONE, RESIZE_PLAYER_TWO
+from settings import FPS, WIN, WHITE, BLACK, BORDER, BACKGROUND_IMAGE, HEALTH_FONT, WIDTH, WINNER_FONT, HEIGHT, RESIZE_PLAYER_ONE, RESIZE_PLAYER_TWO
 import pygame
 """
 This is a the file that handles various helper functions like building the game background, drawing characters images on the screen, etc
@@ -13,11 +13,6 @@ def draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_hea
     WIN.blit(RESIZE_PLAYER_ONE, (yellow.x, yellow.y)) # position the image, using x,y coordinates
     WIN.blit(RESIZE_PLAYER_TWO, (red.x, red.y))
 
-    for bullet in red_bullets:
-        pygame.draw.rect(WIN, RED, bullet)
-    
-    for bullet in yellow_bullets:
-        pygame.draw.rect(WIN, YELLOW, bullet)
     pygame.display.update()
 
 def draw_winner(text):
@@ -27,12 +22,19 @@ def draw_winner(text):
     pygame.display.update()
     pygame.time.delay(5000)
 
+def render_projectiles(yellow_bullets, red_bullets, WIN):
+    # Render bullets
+        for bullet in yellow_bullets:
+            bullet.draw(WIN)  # Use the Bullet class's draw method to render the image
+        for bullet in red_bullets:
+            bullet.draw(WIN)  # Use the Bullet class's draw method to render the image
+
 def restart_prompt(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health):
     """
     Helper function that displays a message asking if the player(s) would like to restart or quit the game after a game concludes
     """
     WIN = pygame.display.get_surface()
-    restart_text = MENU_FONT.render("Press R to Restart or E to Exit the program", True, (255, 255, 255))
+    restart_text = HEALTH_FONT.render("Press R to Restart or E to Exit the program", True, (255, 255, 255))
     clock = pygame.time.Clock()
     run = True
     while run:

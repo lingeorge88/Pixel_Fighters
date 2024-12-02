@@ -1,11 +1,12 @@
 import pygame
-from settings import FPS, yellow_bullets, red_bullets, RED_HIT, YELLOW_HIT, red_health, yellow_health, WIN
-from helpers import draw_window, draw_winner, restart_prompt
+from settings import FPS, yellow_bullets, red_bullets, red_health, yellow_health, WIN
+from helpers import draw_window, render_projectiles
 from movement_logic import yellow_handle_movement, red_handle_movement
 from game_objects import create_character_positions
 from shooting_logic import handle_yellow_shooting, handle_red_shooting, handle_bullets
 from game_logic import handle_hits, check_winner
 from game_sound import SoundManager
+from title_screen import menu_options
 
 game_sounds = SoundManager()
 
@@ -43,12 +44,7 @@ def main():
         red_handle_movement(keys_pressed, red)
         handle_bullets(yellow_bullets, red_bullets, yellow, red)
         draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health)
-        
-        # Render bullets
-        for bullet in yellow_bullets:
-            bullet.draw(WIN)  # Use the Bullet class's draw method to render the image
-        for bullet in red_bullets:
-            bullet.draw(WIN)  # Use the Bullet class's draw method to render the image
+        render_projectiles(yellow_bullets, red_bullets, WIN)
 
         pygame.display.update()  # Update the display to reflect changes
 
@@ -60,4 +56,5 @@ def main():
 
 if __name__ == "__main__":
     game_sounds.play_background_music()
+    menu_options()
     main()

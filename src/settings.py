@@ -21,18 +21,18 @@ red_bullets = []
 yellow_bullets = []
 BULLET_VEL = 8 # how fast the bullet that player shoots moves
 MAX_BULLETS = 5 # max bullets that can appear on each side at one time
-CHARACTER_IMAGE_WIDTH, CHARACTER_IMAGE_HEIGHT = 75, 100 # scale for our character images
+CHARACTER_IMAGE_WIDTH, CHARACTER_IMAGE_HEIGHT = 65, 90 # scale for our character images
 # We need to load character images and resize them
 PLAYER_ONE_IMAGE = pygame.image.load(os.path.join("Assets", 'char1.1.png')) 
 RESIZE_PLAYER_ONE = pygame.transform.scale(PLAYER_ONE_IMAGE, (CHARACTER_IMAGE_WIDTH, CHARACTER_IMAGE_HEIGHT))
 PLAYER_TWO_IMAGE = pygame.image.load(os.path.join("Assets", 'char2.0.png'))
 RESIZE_PLAYER_TWO = pygame.transform.scale(PLAYER_TWO_IMAGE, (CHARACTER_IMAGE_WIDTH, CHARACTER_IMAGE_HEIGHT))
 
-PLAYER_ONE_PROJECTILE_IMAGE = pygame.image.load(os.path.join("Assets", "yellow_projectile.png"))
-PLAYER_TWO_PROJECTILE_IMAGE = pygame.image.load(os.path.join("Assets", "red_projectile.png"))
+PLAYER_ONE_PROJECTILE_IMAGE = pygame.image.load(os.path.join("Assets", "yellowPRJT.png"))
+PLAYER_TWO_PROJECTILE_IMAGE = pygame.image.load(os.path.join("Assets", "redPRJT.png"))
 
-PLAYER_ONE_PROJECTILE = pygame.transform.rotate(pygame.transform.scale(PLAYER_ONE_PROJECTILE_IMAGE, (10, 17)), 90)
-PLAYER_TWO_PROJECTILE = pygame.transform.rotate(pygame.transform.scale(PLAYER_TWO_PROJECTILE_IMAGE, (10, 17)),270)
+PLAYER_ONE_PROJECTILE = pygame.transform.rotate(pygame.transform.scale(PLAYER_ONE_PROJECTILE_IMAGE, (12, 21)), 90)
+PLAYER_TWO_PROJECTILE = pygame.transform.rotate(pygame.transform.scale(PLAYER_TWO_PROJECTILE_IMAGE, (12, 21)), 90)
 
 BACKGROUND_IMAGE = pygame.transform.scale(pygame.image.load(os.path.join("Assets", "background3.0.jpg")), (WIDTH, HEIGHT))
 BORDER = pygame.Rect(WIDTH//2 - 5, 0, 10, HEIGHT)  # Sets the border in the middle of the screen .
@@ -44,4 +44,5 @@ yellow_health = 10
 red_health = 10
 HEALTH_FONT = pygame.font.SysFont('comicsans', 40)
 WINNER_FONT = pygame.font.SysFont('comicsans', 100)
-MENU_FONT = pygame.font.SysFont('comicsans', 40)
+CONTROL_FONT = pygame.font.SysFont('comicsans', 20)
+TITLE_FONT = pygame.font.SysFont('comicsans', 80)
