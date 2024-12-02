@@ -1,5 +1,4 @@
 import pygame
-
 from helpers import draw_winner, restart_prompt
 from settings import PLAYER_TWO_HIT, PLAYER_ONE_HIT
 
@@ -15,7 +14,7 @@ def handle_hits(event, player_two_health, player_one_health, sound_manager):
         sound_manager.play_hit_sound()
     return player_two_health, player_one_health
 
-def check_winner(player_two_health, player_one_health, player_two, player_one, player_two_bullets, player_one_bullets):
+def check_winner(player_two_health, player_one_health, player_two, player_one, player_two_projectiles, player_one_projectiles):
     """
     Check if a winner exists and handle the winner logic.
 
@@ -30,6 +29,6 @@ def check_winner(player_two_health, player_one_health, player_two, player_one, p
 
     if winner_text != "":
         draw_winner(winner_text)
-        if restart_prompt(player_two, player_one, player_two_bullets, player_one_bullets, player_two_health, player_one_health):
+        if restart_prompt(player_two, player_one, player_two_projectiles, player_one_projectiles, player_two_health, player_one_health):
             return "RESTART"
     return winner_text

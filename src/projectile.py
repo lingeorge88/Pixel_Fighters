@@ -1,6 +1,6 @@
 import pygame
 
-class Bullet:
+class Projectile:
     def __init__(self, x, y, width, height, velocity, image):
         """
         Initialize a bullet object.

@@ -22,11 +22,11 @@ def draw_winner(text):
     pygame.display.update()
     pygame.time.delay(5000)
 
-def render_projectiles(player_one_bullets, player_two_bullets, WIN):
-    # Render bullets
-        for bullet in player_one_bullets:
+def render_projectiles(player_one_projectiles, player_two_projectiles, WIN):
+    # Render projectiles
+        for bullet in player_one_projectiles:
             bullet.draw(WIN)  # Use the Bullet class's draw method to render the image
-        for bullet in player_two_bullets:
+        for bullet in player_two_projectiles:
             bullet.draw(WIN)  # Use the Bullet class's draw method to render the image
 
 def restart_prompt(player_two, player_one, player_two_bullets, player_one_bullets, player_two_health, player_one_health):
