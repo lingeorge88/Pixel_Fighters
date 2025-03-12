@@ -1,0 +1,67 @@
+test_no_winner (test_checkWinner.TestCheckWinner.test_no_winner)
+Test that no winner is declared if both players have non-zero health. ... ok
+test_both_players_hit (test_handleHits.TestGameLogic.test_both_players_hit)
+Test the scenario where both players are hit at the same time. ... ok
+test_no_hit_event (test_handleHits.TestGameLogic.test_no_hit_event)
+Test that health values remain unchanged for irrelevant events. ... ok
+test_player_one_hit (test_handleHits.TestGameLogic.test_player_one_hit)
+Test the scenario where player one is hit. ... ok
+test_player_two_hit (test_handleHits.TestGameLogic.test_player_two_hit)
+Test the scenario where player two is hit. ... ok
+test_no_collision_or_off_screen (test_handleProjectiles.TestHandleProjectiles.test_no_collision_or_off_screen)
+Test that projectiles remain when there are no collisions or off-screen events. ... ok
+test_projectiles_check_collision_player_one (test_handleProjectiles.TestHandleProjectiles.test_projectiles_check_collision_player_one)
+Test that collisions are handled correctly for projectiles. ... ok
+test_projectiles_check_collision_player_two (test_handleProjectiles.TestHandleProjectiles.test_projectiles_check_collision_player_two)
+Test that collisions are handled correctly for projectiles. ... ok
+test_projectiles_check_off_screen (test_handleProjectiles.TestHandleProjectiles.test_projectiles_check_off_screen)
+Test that off-screen projectiles are removed correctly. ... ok
+test_projectiles_move (test_handleProjectiles.TestHandleProjectiles.test_projectiles_move)
+Test that projectiles move correctly. ... ok
+test_player_one_move_down (test_playerOneMovement.TestPlayerOneMovementLogic.test_player_one_move_down)
+Test that Player One moves down within screen boundaries at the specified speed ... ok
+test_player_one_move_down_boundary (test_playerOneMovement.TestPlayerOneMovementLogic.test_player_one_move_down_boundary)
+Test that Player One does not move off the top boundary. ... ok
+test_player_one_move_left (test_playerOneMovement.TestPlayerOneMovementLogic.test_player_one_move_left)
+Test that Player One moves left within screen boundaries at the specified speed ... ok
+test_player_one_move_left_boundary (test_playerOneMovement.TestPlayerOneMovementLogic.test_player_one_move_left_boundary)
+Test that Player One does not move off the left boundary. ... ok
+test_player_one_move_right (test_playerOneMovement.TestPlayerOneMovementLogic.test_player_one_move_right)
+Test that Player One moves right within screen boundaries at the specified speed ... ok
+test_player_one_move_right_boundary (test_playerOneMovement.TestPlayerOneMovementLogic.test_player_one_move_right_boundary)
+Test that Player One does not move off the right boundary(The border in the middle of the screen). ... ok
+test_player_one_move_up (test_playerOneMovement.TestPlayerOneMovementLogic.test_player_one_move_up)
+Test that Player One moves up within screen boundaries at the specified speed ... ok
+test_player_one_move_up_boundary (test_playerOneMovement.TestPlayerOneMovementLogic.test_player_one_move_up_boundary)
+Test that Player One does not move off the top boundary. ... ok
+test_player_two_move_down (test_playerTwoMovement.TestPlayerTwoMovementLogic.test_player_two_move_down)
+Test that Player Two moves down within screen boundaries. ... ok
+test_player_two_move_down_boundary (test_playerTwoMovement.TestPlayerTwoMovementLogic.test_player_two_move_down_boundary)
+Test that Player Two does not move off the bottom boundary. ... ok
+test_player_two_move_left (test_playerTwoMovement.TestPlayerTwoMovementLogic.test_player_two_move_left)
+Test that Player Two moves left within screen boundaries. ... ok
+test_player_two_move_left_boundary (test_playerTwoMovement.TestPlayerTwoMovementLogic.test_player_two_move_left_boundary)
+Test that Player Two does not move beyond the left boundary defined by BORDER.x + BORDER.width. ... ok
+test_player_two_move_right (test_playerTwoMovement.TestPlayerTwoMovementLogic.test_player_two_move_right)
+Test that Player Two moves right within screen boundaries. ... ok
+test_player_two_move_right_boundary (test_playerTwoMovement.TestPlayerTwoMovementLogic.test_player_two_move_right_boundary)
+Test that Player Two does not move off the right edge of the screen. ... ok
+test_player_two_move_up (test_playerTwoMovement.TestPlayerTwoMovementLogic.test_player_two_move_up)
+Test that Player Two moves up within screen boundaries. ... ok
+test_player_two_move_up_boundary (test_playerTwoMovement.TestPlayerTwoMovementLogic.test_player_two_move_up_boundary)
+Test that Player Two does not move off the top boundary. ... ok
+test_check_collision (test_projectileClass.TestProjectile.test_check_collision)
+Test that the projectile correctly detects collisions with a target. ... ok
+test_is_offscreen (test_projectileClass.TestProjectile.test_is_offscreen)
+Test that the projectile is correctly identified as off-screen. ... ok
+test_projectile_movement (test_projectileClass.TestProjectile.test_projectile_movement)
+Test that the projectile moves correctly based on its velocity. ... ok
+test_handle_player_one_shooting (test_shootingLogic.TestShootingLogic.test_handle_player_one_shooting)
+Test that Player One shoots a projectile when the correct key is pressed. ... ok
+test_handle_player_two_shooting (test_shootingLogic.TestShootingLogic.test_handle_player_two_shooting)
+Test that Player Two shoots a projectile when the correct key is pressed. ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.001s
+
+OK

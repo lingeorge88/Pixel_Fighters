@@ -1,0 +1,4 @@
+# List of dependencies required to run the project
+
+# Pygame library for game development
+pygame==2.6.1
